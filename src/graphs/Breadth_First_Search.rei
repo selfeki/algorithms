@@ -1,8 +1,9 @@
 type node = {
     id: string,
-    neighbours: list(node),
+    neighbours: list(string),
 };
-
-type pair = (string, list(string));
-
-let breadthFirstSearch: (list(pair), string) => Hashtbl.t(string, int);
+type returnResult = {
+    level: Hashtbl.t(string, int), 
+    parent: Hashtbl.t(string, string)
+};
+let breadthFirstSearch: (list(node), string) => returnResult;
